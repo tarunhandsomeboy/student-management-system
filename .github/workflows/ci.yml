@@ -1,0 +1,58 @@
+name: Student Management System CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout project
+        uses: actions/checkout@v4
+
+      - name: Check HTML files
+        run: |
+          echo "Checking HTML files..."
+          test -f index.html
+          test -f students.html
+          test -f attendance.html
+          test -f marks.html
+          test -f courses.html
+          test -f faculty.html
+          test -f reports.html
+          echo "All HTML files are present."
+
+      - name: Check CSS folder
+        run: |
+          echo "Checking CSS..."
+          test -d css
+          test -f css/style.css
+          echo "CSS files are present."
+
+      - name: Check JavaScript folder
+        run: |
+          echo "Checking JavaScript..."
+          test -d js
+          test -f js/storage.js
+          test -f js/dashboard.js
+          test -f js/students.js
+          test -f js/attendance.js
+          test -f js/marks.js
+          test -f js/courses.js
+          test -f js/faculty.js
+          test -f js/reports.js
+          echo "JavaScript files are present."
+
+      - name: Build validation successful
+        run: |
+          echo "======================================"
+          echo "Student Management System CI Passed"
+          echo "All required project files exist."
+          echo "======================================"
