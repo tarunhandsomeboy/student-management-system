@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Faculty - College Management System</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <h2>
+            Student Management
+        </h2>
+
+
+        <div class="nav-menu">
+
+            <a
+                href="index.html"
+                class="nav-item"
+            >
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+
+            <a
+                href="students.html"
+                class="nav-item"
+            >
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+
+            <a
+                href="attendance.html"
+                class="nav-item"
+            >
+                <span>📅</span>
+                Attendance
+            </a>
+
+
+            <a
+                href="marks.html"
+                class="nav-item"
+            >
+                <span>📝</span>
+                Marks
+            </a>
+
+
+            <a
+                href="courses.html"
+                class="nav-item"
+            >
+                <span>📚</span>
+                Courses
+            </a>
+
+
+            <a
+                href="faculty.html"
+                class="nav-item active"
+            >
+                <span>👨‍🏫</span>
+                Faculty
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-item"
+            >
+                <span>📊</span>
+                Reports
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h1>
+                    Faculty
+                </h1>
+
+                <p>
+                    Manage faculty members
+                </p>
+
+            </div>
+
+
+            <div class="profile">
+                👤 Admin
+            </div>
+
+        </div>
+
+
+
+        <!-- FACULTY FORM -->
+
+        <div class="content-card">
+
+
+            <h2>
+                Add Faculty
+            </h2>
+
+
+            <div class="student-form">
+
+
+                <!-- FACULTY ID -->
+
+                <div class="form-group">
+
+                    <label>
+                        Faculty ID
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyId"
+                        placeholder="Example: FAC001"
+                    >
+
+                </div>
+
+
+
+                <!-- NAME -->
+
+                <div class="form-group">
+
+                    <label>
+                        Faculty Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyName"
+                        placeholder="Enter faculty name"
+                    >
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="form-group">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="facultyEmail"
+                        placeholder="faculty@example.com"
+                    >
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="form-group">
+
+                    <label>
+                        Phone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="facultyPhone"
+                        placeholder="Enter phone number"
+                    >
+
+                </div>
+
+
+
+                <!-- DEPARTMENT -->
+
+                <div class="form-group">
+
+                    <label>
+                        Department
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyDepartment"
+                        placeholder="Example: Computer Science"
+                    >
+
+                </div>
+
+
+
+                <!-- DESIGNATION -->
+
+                <div class="form-group">
+
+                    <label>
+                        Designation
+                    </label>
+
+                    <input
+                        type="text"
+                        id="facultyDesignation"
+                        placeholder="Example: Assistant Professor"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="form-actions">
+
+                <button
+                    class="btn-primary"
+                    onclick="saveFacultyRecord()"
+                >
+                    Save Faculty
+                </button>
+
+
+                <button
+                    class="btn-secondary"
+                    onclick="clearFacultyForm()"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FACULTY RECORDS -->
+
+        <div class="content-card">
+
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+                        Faculty Records
+                    </h2>
+
+                    <p>
+                        View and manage faculty members
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="facultySearch"
+                    placeholder="Search faculty..."
+                    onkeyup="searchFaculty()"
+                >
+
+            </div>
+
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Faculty ID
+                            </th>
+
+                            <th>
+                                Name
+                            </th>
+
+                            <th>
+                                Email
+                            </th>
+
+                            <th>
+                                Phone
+                            </th>
+
+                            <th>
+                                Department
+                            </th>
+
+                            <th>
+                                Designation
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="facultyTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FACULTY SUMMARY -->
+
+        <div class="content-card">
+
+
+            <h2>
+                Faculty Summary
+            </h2>
+
+
+            <div id="facultySummary">
+
+                <p>
+                    Total faculty members will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/faculty.js"></script>
+
+
+</body>
+
+</html>

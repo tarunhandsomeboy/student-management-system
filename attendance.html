@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance - College Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <h2>Student Management</h2>
+
+        <div class="nav-menu">
+
+            <a href="index.html" class="nav-item">
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+            <a href="students.html" class="nav-item">
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+            <a href="attendance.html" class="nav-item active">
+                <span>📅</span>
+                Attendance
+            </a>
+
+            <a href="marks.html" class="nav-item">
+                <span>📝</span>
+                Marks
+            </a>
+
+            <a href="courses.html" class="nav-item">
+                <span>📚</span>
+                Courses
+            </a>
+
+            <a href="faculty.html" class="nav-item">
+                <span>👨‍🏫</span>
+                Faculty
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span>📊</span>
+                Reports
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <!-- Top Bar -->
+        <div class="topbar">
+
+            <div>
+                <h1>Attendance</h1>
+                <p>Manage student attendance</p>
+            </div>
+
+            <div class="profile">
+                👤 Admin
+            </div>
+
+        </div>
+
+
+        <!-- Attendance Form -->
+        <div class="content-card">
+
+            <h2>Mark Attendance</h2>
+
+            <div class="student-form">
+
+                <div class="form-group">
+
+                    <label for="attendanceStudent">
+                        Select Student
+                    </label>
+
+                    <select id="attendanceStudent">
+
+                        <option value="">
+                            Select Student
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="attendanceDate">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="attendanceDate"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="attendanceStatus">
+                        Status
+                    </label>
+
+                    <select id="attendanceStatus">
+
+                        <option value="">
+                            Select Status
+                        </option>
+
+                        <option value="Present">
+                            Present
+                        </option>
+
+                        <option value="Absent">
+                            Absent
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    class="btn-primary"
+                    onclick="saveAttendanceRecord()"
+                >
+                    Save Attendance
+                </button>
+
+                <button
+                    class="btn-secondary"
+                    onclick="clearAttendanceForm()"
+                >
+                    Clear
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Attendance Records -->
+        <div class="content-card">
+
+            <div class="table-header">
+
+                <div>
+                    <h2>Attendance Records</h2>
+                    <p>View and manage attendance</p>
+                </div>
+
+                <input
+                    type="text"
+                    id="attendanceSearch"
+                    placeholder="Search student..."
+                    onkeyup="searchAttendance()"
+                >
+
+            </div>
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Student ID</th>
+                            <th>Student Name</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Action</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="attendanceTableBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <!-- Attendance Summary -->
+        <div class="content-card">
+
+            <h2>Attendance Summary</h2>
+
+            <div id="attendanceSummary">
+
+                <p>Select a student to view attendance summary.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- JavaScript -->
+    <script src="js/storage.js"></script>
+    <script src="js/attendance.js"></script>
+
+</body>
+</html>

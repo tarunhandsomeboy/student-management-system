@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>College Management System</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="logo-icon">🎓</div>
+
+                <div>
+                    <h2>StudentMS</h2>
+                    <span>Management System</span>
+                </div>
+            </div>
+
+            <nav>
+
+                <a href="index.html" class="nav-item active">
+                    <span>🏠</span>
+                    Dashboard
+                </a>
+
+                <a href="students.html" class="nav-item">
+                    <span>👨‍🎓</span>
+                    Students
+                </a>
+
+                <a href="attendance.html" class="nav-item">
+                    <span>📅</span>
+                    Attendance
+                </a>
+
+                <a href="marks.html" class="nav-item">
+                    <span>📝</span>
+                    Marks
+                </a>
+
+                <a href="courses.html" class="nav-item">
+                    <span>📚</span>
+                    Courses
+                </a>
+
+                <a href="faculty.html" class="nav-item">
+                    <span>👨‍🏫</span>
+                    Faculty
+                </a>
+
+                <a href="reports.html" class="nav-item">
+                    <span>📊</span>
+                    Reports
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <!-- HEADER -->
+            <header class="topbar">
+
+                <div>
+                    <h1>Dashboard</h1>
+
+                    <p>
+                        Welcome back, Administrator 👋
+                    </p>
+                </div>
+
+                <div class="profile">
+
+                    <div class="profile-icon">
+                        A
+                    </div>
+
+                    <div>
+                        <strong>Administrator</strong>
+                        <small>Admin</small>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- STATISTICS -->
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        👨‍🎓
+                    </div>
+
+                    <div>
+                        <p>Total Students</p>
+                        <h2 id="totalStudents">0</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        👨‍🏫
+                    </div>
+
+                    <div>
+                        <p>Total Faculty</p>
+                        <h2 id="totalFaculty">0</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        📚
+                    </div>
+
+                    <div>
+                        <p>Total Courses</p>
+                        <h2 id="totalCourses">0</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        📅
+                    </div>
+
+                    <div>
+                        <p>Avg Attendance</p>
+                        <h2 id="avgAttendance">0%</h2>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- DASHBOARD PANELS -->
+            <section class="dashboard-grid">
+
+                <!-- ATTENDANCE -->
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <h2>Attendance Overview</h2>
+
+                            <p>
+                                Overall student attendance
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="attendance-chart">
+
+                        <div class="circle-chart">
+
+                            <div>
+
+                                <strong id="attendanceCircle">
+                                    0%
+                                </strong>
+
+                                <span>
+                                    Attendance
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="attendance-details">
+
+                            <div>
+                                <span class="dot present"></span>
+
+                                Present
+
+                                <strong id="presentCount">
+                                    0
+                                </strong>
+                            </div>
+
+
+                            <div>
+                                <span class="dot absent"></span>
+
+                                Absent
+
+                                <strong id="absentCount">
+                                    0
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- RECENT STUDENTS -->
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h2>Recent Students</h2>
+
+                            <p>
+                                Recently added students
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="students.html"
+                            class="view-link"
+                        >
+                            View All
+                        </a>
+
+                    </div>
+
+
+                    <div
+                        id="recentStudents"
+                        class="recent-list"
+                    >
+
+                        <p class="empty">
+                            No students available.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUICK ACTIONS -->
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h2>Quick Actions</h2>
+
+                        <p>
+                            Manage your student data
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quick-actions">
+
+                    <a
+                        href="students.html"
+                        class="quick-btn"
+                    >
+                        <span>➕</span>
+                        Add Student
+                    </a>
+
+
+                    <a
+                        href="attendance.html"
+                        class="quick-btn"
+                    >
+                        <span>📅</span>
+                        Mark Attendance
+                    </a>
+
+
+                    <a
+                        href="marks.html"
+                        class="quick-btn"
+                    >
+                        <span>📝</span>
+                        Enter Marks
+                    </a>
+
+
+                    <a
+                        href="reports.html"
+                        class="quick-btn"
+                    >
+                        <span>📊</span>
+                        View Reports
+                    </a>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/storage.js"></script>
+    <script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

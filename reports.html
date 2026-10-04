@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reports - College Management System</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- SIDEBAR -->
+
+    <div class="sidebar">
+
+        <h2>
+            Student Management
+        </h2>
+
+
+        <div class="nav-menu">
+
+            <a
+                href="index.html"
+                class="nav-item"
+            >
+                <span>🏠</span>
+                Dashboard
+            </a>
+
+
+            <a
+                href="students.html"
+                class="nav-item"
+            >
+                <span>👨‍🎓</span>
+                Students
+            </a>
+
+
+            <a
+                href="attendance.html"
+                class="nav-item"
+            >
+                <span>📅</span>
+                Attendance
+            </a>
+
+
+            <a
+                href="marks.html"
+                class="nav-item"
+            >
+                <span>📝</span>
+                Marks
+            </a>
+
+
+            <a
+                href="courses.html"
+                class="nav-item"
+            >
+                <span>📚</span>
+                Courses
+            </a>
+
+
+            <a
+                href="faculty.html"
+                class="nav-item"
+            >
+                <span>👨‍🏫</span>
+                Faculty
+            </a>
+
+
+            <a
+                href="reports.html"
+                class="nav-item active"
+            >
+                <span>📊</span>
+                Reports
+            </a>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <div class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <div class="topbar">
+
+            <div>
+
+                <h1>
+                    Reports
+                </h1>
+
+                <p>
+                    Student performance and academic reports
+                </p>
+
+            </div>
+
+
+            <div class="profile">
+                👤 Admin
+            </div>
+
+        </div>
+
+
+
+        <!-- REPORT STATISTICS -->
+
+        <div class="stats-grid">
+
+
+            <!-- TOTAL STUDENTS -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👨‍🎓
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Students
+                    </h3>
+
+                    <p id="reportTotalStudents">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TOTAL FACULTY -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👨‍🏫
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Faculty
+                    </h3>
+
+                    <p id="reportTotalFaculty">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TOTAL COURSES -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <h3>
+                        Total Courses
+                    </h3>
+
+                    <p id="reportTotalCourses">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ATTENDANCE -->
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <h3>
+                        Overall Attendance
+                    </h3>
+
+                    <p id="reportAttendance">
+                        0%
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- ATTENDANCE REPORT -->
+
+        <div class="content-card">
+
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+                        Student Attendance Report
+                    </h2>
+
+                    <p>
+                        Attendance performance of students
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="reportAttendanceSearch"
+                    placeholder="Search student..."
+                    onkeyup="searchAttendanceReport()"
+                >
+
+            </div>
+
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Student ID
+                            </th>
+
+                            <th>
+                                Student Name
+                            </th>
+
+                            <th>
+                                Total Classes
+                            </th>
+
+                            <th>
+                                Present
+                            </th>
+
+                            <th>
+                                Absent
+                            </th>
+
+                            <th>
+                                Attendance
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="attendanceReportBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MARKS REPORT -->
+
+        <div class="content-card">
+
+
+            <div class="table-header">
+
+                <div>
+
+                    <h2>
+                        Student Marks Report
+                    </h2>
+
+                    <p>
+                        Academic performance of students
+                    </p>
+
+                </div>
+
+
+                <input
+                    type="text"
+                    id="reportMarksSearch"
+                    placeholder="Search student..."
+                    onkeyup="searchMarksReport()"
+                >
+
+            </div>
+
+
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Student ID
+                            </th>
+
+                            <th>
+                                Student Name
+                            </th>
+
+                            <th>
+                                Subjects
+                            </th>
+
+                            <th>
+                                Total Marks
+                            </th>
+
+                            <th>
+                                Percentage
+                            </th>
+
+                            <th>
+                                Grade
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="marksReportBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- REPORT SUMMARY -->
+
+        <div class="content-card">
+
+            <h2>
+                Performance Summary
+            </h2>
+
+
+            <div id="performanceSummary">
+
+                <p>
+                    Performance summary will appear here.
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/storage.js"></script>
+
+    <script src="js/reports.js"></script>
+
+
+</body>
+
+</html>
